@@ -1,6 +1,9 @@
 package database
 
 import (
+	"fmt"
+	"os"
+
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
@@ -9,7 +12,12 @@ import (
 var GormDB *gorm.DB
 
 func Connect() {
-	connection, err := gorm.Open(mysql.Open("yon:a@/quizproject?parseTime=true"), &gorm.Config{
+
+	username := os.Getenv("username")
+	password := os.Getenv("password")
+	database := os.Getenv("database")
+
+	connection, err := gorm.Open(mysql.Open(fmt.Sprintf("%s:%s@/%s?parseTime=true", username, password, database)), &gorm.Config{
 		Logger: logger.Default,
 	})
 

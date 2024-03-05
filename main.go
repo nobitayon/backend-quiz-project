@@ -1,6 +1,9 @@
 package main
 
 import (
+	"fmt"
+	"os"
+
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/joho/godotenv"
@@ -14,14 +17,17 @@ func main() {
 
 	database.Connect()
 
+	port := os.Getenv("port")
+	allowed_origins := os.Getenv("allowed_origins")
+
 	app := fiber.New()
 
 	app.Use(cors.New(cors.Config{
-		AllowOrigins:     "http://localhost:5173",
+		AllowOrigins:     allowed_origins,
 		AllowCredentials: true,
 	}))
 
 	routes.Setup(app)
 
-	app.Listen(":8000")
+	app.Listen(fmt.Sprintf(":%s", port))
 }
