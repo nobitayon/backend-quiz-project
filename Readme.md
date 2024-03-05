@@ -72,3 +72,7 @@ Secara umum, pada endpoint yang menerima body request, saya melakukan validasi, 
     - api/v1/periksa
 
 
+Referensi
+- https://blog.logrocket.com/authentication-react-router-v6/
+- [https://www.youtube.com/watch?v=d4Y2DkKbxM0&t=3360s&pp=ygUVZnJlZWNvZGVjYW1wIHJlYWN0IGdv](https://youtu.be/d4Y2DkKbxM0?si=AzyNzl4InPrRib7w)
+- https://strapengine.com/build-a-custom-jwt-go-fiber-middleware/
