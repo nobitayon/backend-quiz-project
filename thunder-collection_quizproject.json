@@ -1,0 +1,542 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "quizproject",
+    "dateExported": "2024-03-05T11:30:33.977Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "93529338-9206-4d39-90fc-601a7c012468",
+            "name": "endpoint quiz",
+            "containerId": "",
+            "created": "2024-02-20T11:40:58.588Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "a3f712da-49cf-497f-965b-34eadea585a3",
+            "name": "endpoint pertanyaan on quiz",
+            "containerId": "",
+            "created": "2024-02-20T11:42:39.488Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "fccf9df2-d549-407f-a979-46c931669017",
+            "name": "auth",
+            "containerId": "",
+            "created": "2024-02-20T11:43:06.328Z",
+            "sortNum": 30000
+        },
+        {
+            "_id": "61e1f5f4-cdfb-4026-82ee-51d0375fed51",
+            "name": "endpoint jawaban",
+            "containerId": "",
+            "created": "2024-02-20T12:02:21.484Z",
+            "sortNum": 40000
+        },
+        {
+            "_id": "561504cc-1b94-46ab-a0c3-01fe55b05c61",
+            "name": "Check Restricted",
+            "containerId": "",
+            "created": "2024-02-24T12:24:35.455Z",
+            "sortNum": 50000
+        },
+        {
+            "_id": "966f83b0-01cb-423c-b566-7f785909b171",
+            "name": "Check time record",
+            "containerId": "",
+            "created": "2024-02-28T09:54:03.627Z",
+            "sortNum": 60000
+        },
+        {
+            "_id": "4f786752-8cc9-41da-85e8-c08f05b98ed7",
+            "name": "periksa jawaban peserta",
+            "containerId": "",
+            "created": "2024-02-28T10:36:24.347Z",
+            "sortNum": 70000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "893b1fdd-4a6d-46f6-a9f8-22d9845c9209",
+            "colId": "abdd1cb4-689c-4c17-8542-12061955232b",
+            "containerId": "fccf9df2-d549-407f-a979-46c931669017",
+            "name": "Login User",
+            "url": "http://localhost:8000/api/v1/login",
+            "method": "POST",
+            "sortNum": 5000,
+            "created": "2024-02-17T05:53:06.712Z",
+            "modified": "2024-03-03T21:37:30.895Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\":\"cech@chels.com\",\n  \"password\":\"properchels\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "2500070d-a835-4795-bed3-ca58687ee17e",
+            "colId": "abdd1cb4-689c-4c17-8542-12061955232b",
+            "containerId": "fccf9df2-d549-407f-a979-46c931669017",
+            "name": "Login Admin",
+            "url": "http://localhost:8000/api/v1/login",
+            "method": "POST",
+            "sortNum": 7500,
+            "created": "2024-02-24T22:17:45.106Z",
+            "modified": "2024-02-28T11:59:51.243Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\":\"admin@admin.com\",\n  \"password\":\"admin123\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "1cb8ad1e-af4b-466e-bb13-79e2bca832e8",
+            "colId": "abdd1cb4-689c-4c17-8542-12061955232b",
+            "containerId": "fccf9df2-d549-407f-a979-46c931669017",
+            "name": "Register User",
+            "url": "http://localhost:8000/api/v1/register",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-02-17T05:52:58.966Z",
+            "modified": "2024-02-28T12:00:17.173Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nama\":\"pete\",\n  \"email\":\"pete@chels.com\",\n  \"password\":\"properchels\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "ba44ac79-dccf-4e0d-b1e3-274c0745be6d",
+            "colId": "abdd1cb4-689c-4c17-8542-12061955232b",
+            "containerId": "93529338-9206-4d39-90fc-601a7c012468",
+            "name": "Add Quiz",
+            "url": "http://localhost:8000/api/v1/quiz",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-02-17T07:16:56.309Z",
+            "modified": "2024-03-04T18:25:05.061Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"judul\":\"another chem quiz\",\n  \"deskripsi\":\"chem quiz by a2\",\n  \"waktu_mulai\":\"2024-02-23 08:30:00\",\n  \"waktu_selesai\":\"2024-02-23 09:30:00\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsInJvbGUiOiJhZG1pbiJ9.m82u9ZQfMHLEeB_kbSynmssNkulfr4ATylYybfHjZ8U"
+            },
+            "tests": []
+        },
+        {
+            "_id": "112b2de4-b81c-4fc1-92e4-2467123f3a0a",
+            "colId": "abdd1cb4-689c-4c17-8542-12061955232b",
+            "containerId": "a3f712da-49cf-497f-965b-34eadea585a3",
+            "name": "Add pertanyaan on quiz",
+            "url": "http://localhost:8000/api/v1/quiz/19/pertanyaan",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-02-19T21:39:10.845Z",
+            "modified": "2024-03-05T09:28:39.922Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"pertanyaan\":\"berapa hasil 7x6\",\n  \"opsiJawaban\":\"6`-`42`-`30`-`25`-`36\",\n  \"jawabanBenar\":2\n}",
+                "form": []
+            },
+            "reqType": "post",
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsInJvbGUiOiJhZG1pbiJ9.m82u9ZQfMHLEeB_kbSynmssNkulfr4ATylYybfHjZ8U"
+            },
+            "tests": []
+        },
+        {
+            "_id": "0b6e44b5-f7d5-40f3-82be-36bf7efae746",
+            "colId": "abdd1cb4-689c-4c17-8542-12061955232b",
+            "containerId": "a3f712da-49cf-497f-965b-34eadea585a3",
+            "name": "Edit pertanyaan on quiz",
+            "url": "http://localhost:8000/api/v1/quiz/4/pertanyaan/11",
+            "method": "PATCH",
+            "sortNum": 20000,
+            "created": "2024-02-20T09:27:33.467Z",
+            "modified": "2024-02-28T11:54:43.372Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"jawabanBenar\":2\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsInJvbGUiOiJhZG1pbiJ9.m82u9ZQfMHLEeB_kbSynmssNkulfr4ATylYybfHjZ8U"
+            },
+            "tests": []
+        },
+        {
+            "_id": "ff5b73c1-0f1a-4510-9590-e21f75e626e6",
+            "colId": "abdd1cb4-689c-4c17-8542-12061955232b",
+            "containerId": "93529338-9206-4d39-90fc-601a7c012468",
+            "name": "Edit quiz",
+            "url": "http://localhost:8000/api/v1/quiz/7",
+            "method": "PATCH",
+            "sortNum": 20000,
+            "created": "2024-02-20T11:34:52.506Z",
+            "modified": "2024-02-28T11:42:05.740Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"deskripsi\":\"math quiz by e e\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsInJvbGUiOiJhZG1pbiJ9.m82u9ZQfMHLEeB_kbSynmssNkulfr4ATylYybfHjZ8U"
+            },
+            "tests": []
+        },
+        {
+            "_id": "fdf2455f-f51e-4b03-bec3-4182e0faa184",
+            "colId": "abdd1cb4-689c-4c17-8542-12061955232b",
+            "containerId": "fccf9df2-d549-407f-a979-46c931669017",
+            "name": "Register Admin",
+            "url": "http://localhost:8000/api/v1/register_admin",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-02-24T22:09:28.449Z",
+            "modified": "2024-02-28T12:01:03.540Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nama\":\"admin2\",\n  \"email\":\"admin2@admin.com\",\n  \"password\":\"admin123\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsInJvbGUiOiJhZG1pbiJ9.m82u9ZQfMHLEeB_kbSynmssNkulfr4ATylYybfHjZ8U"
+            },
+            "tests": []
+        },
+        {
+            "_id": "a6ae72ea-5c35-4dac-9efc-f4be0a2d9af5",
+            "colId": "abdd1cb4-689c-4c17-8542-12061955232b",
+            "containerId": "93529338-9206-4d39-90fc-601a7c012468",
+            "name": "Get quiz by id",
+            "url": "http://localhost:8000/api/v1/quiz/18",
+            "method": "GET",
+            "sortNum": 25000,
+            "created": "2024-02-20T11:32:08.950Z",
+            "modified": "2024-03-05T09:00:30.199Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n\n}",
+                "form": []
+            },
+            "reqType": "get",
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsInJvbGUiOiJhZG1pbiJ9.m82u9ZQfMHLEeB_kbSynmssNkulfr4ATylYybfHjZ8U"
+            },
+            "tests": []
+        },
+        {
+            "_id": "74a9eaf4-5323-4cf5-bfb5-3a6a040e3eb0",
+            "colId": "abdd1cb4-689c-4c17-8542-12061955232b",
+            "containerId": "a3f712da-49cf-497f-965b-34eadea585a3",
+            "name": "Get pertanyaan on quiz",
+            "url": "http://localhost:8000/api/v1/quiz/1/pertanyaan/13",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2024-02-20T09:49:58.697Z",
+            "modified": "2024-02-28T11:56:27.549Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsInJvbGUiOiJhZG1pbiJ9.m82u9ZQfMHLEeB_kbSynmssNkulfr4ATylYybfHjZ8U"
+            },
+            "tests": []
+        },
+        {
+            "_id": "aa5cd55c-a39f-44c4-96f0-5e066201485e",
+            "colId": "abdd1cb4-689c-4c17-8542-12061955232b",
+            "containerId": "93529338-9206-4d39-90fc-601a7c012468",
+            "name": "Delete quiz by id",
+            "url": "http://localhost:8000/api/v1/quiz/18",
+            "method": "DELETE",
+            "sortNum": 30000,
+            "created": "2024-02-20T11:37:55.495Z",
+            "modified": "2024-03-05T09:00:34.828Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"deskripsi\":\"not so easy quiz 3\"\n}",
+                "form": []
+            },
+            "reqType": "del",
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsInJvbGUiOiJhZG1pbiJ9.m82u9ZQfMHLEeB_kbSynmssNkulfr4ATylYybfHjZ8U"
+            },
+            "tests": []
+        },
+        {
+            "_id": "7cf149ad-7ee9-4512-806f-e7ca4d8c3779",
+            "colId": "abdd1cb4-689c-4c17-8542-12061955232b",
+            "containerId": "a3f712da-49cf-497f-965b-34eadea585a3",
+            "name": "Delete pertanyaan on quiz Copy",
+            "url": "http://localhost:8000/api/v1/quiz/19/pertanyaan/29",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2024-02-20T09:40:37.369Z",
+            "modified": "2024-03-05T10:57:29.181Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{}",
+                "form": []
+            },
+            "reqType": "del",
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsInJvbGUiOiJhZG1pbiJ9.m82u9ZQfMHLEeB_kbSynmssNkulfr4ATylYybfHjZ8U"
+            },
+            "tests": []
+        },
+        {
+            "_id": "6b3989d0-b58b-478d-8558-b6d0b4f4e446",
+            "colId": "abdd1cb4-689c-4c17-8542-12061955232b",
+            "containerId": "93529338-9206-4d39-90fc-601a7c012468",
+            "name": "Get all quiz",
+            "url": "http://localhost:8000/api/v1/quiz",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2024-02-20T11:31:47.243Z",
+            "modified": "2024-02-24T22:38:03.989Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsInJvbGUiOiJhZG1pbiJ9.m82u9ZQfMHLEeB_kbSynmssNkulfr4ATylYybfHjZ8U"
+            },
+            "tests": []
+        },
+        {
+            "_id": "0dea0679-8c4d-4d16-997f-bb454e9f8818",
+            "colId": "abdd1cb4-689c-4c17-8542-12061955232b",
+            "containerId": "61e1f5f4-cdfb-4026-82ee-51d0375fed51",
+            "name": "Add jawaban",
+            "url": "http://localhost:8000/api/v1/jawaban",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2024-02-20T12:02:31.435Z",
+            "modified": "2024-03-03T21:38:26.214Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"idUser\":22,\n  \"idQuiz\":1,\n  \"idPertanyaan\":18,\n  \"jawabanPeserta\":3\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsInJvbGUiOiJ1c2VyIn0.nLq2JlTdwItlGrwO8rsH3e-bddWm1rgOeHbrOT6aDfg"
+            },
+            "tests": []
+        },
+        {
+            "_id": "1b91f747-d23e-4448-9804-e7b0799744a6",
+            "colId": "abdd1cb4-689c-4c17-8542-12061955232b",
+            "containerId": "a3f712da-49cf-497f-965b-34eadea585a3",
+            "name": "Get all pertanyaan on quiz",
+            "url": "http://localhost:8000/api/v1/quiz/19/pertanyaan",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2024-02-20T11:03:08.496Z",
+            "modified": "2024-03-05T10:48:30.050Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n\n}",
+                "form": []
+            },
+            "reqType": "get",
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsInJvbGUiOiJhZG1pbiJ9.m82u9ZQfMHLEeB_kbSynmssNkulfr4ATylYybfHjZ8U"
+            },
+            "tests": []
+        },
+        {
+            "_id": "898070f3-a008-4b98-8537-553a274d899a",
+            "colId": "abdd1cb4-689c-4c17-8542-12061955232b",
+            "containerId": "61e1f5f4-cdfb-4026-82ee-51d0375fed51",
+            "name": "Edit jawaban",
+            "url": "http://localhost:8000/api/v1/jawaban/5",
+            "method": "PATCH",
+            "sortNum": 50000,
+            "created": "2024-02-20T12:27:11.063Z",
+            "modified": "2024-02-28T12:11:37.083Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"jawabanPeserta\":5\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "43936c01-1798-47d5-9486-92371c1e6717",
+            "colId": "abdd1cb4-689c-4c17-8542-12061955232b",
+            "containerId": "61e1f5f4-cdfb-4026-82ee-51d0375fed51",
+            "name": "Get jawaban by id",
+            "url": "http://localhost:8000/api/v1/jawaban/3",
+            "method": "GET",
+            "sortNum": 60000,
+            "created": "2024-02-20T12:40:06.736Z",
+            "modified": "2024-02-28T12:10:13.517Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"jawabanPeserta\":1\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "920bac24-e0d8-4538-864b-6e5bab49abb5",
+            "colId": "abdd1cb4-689c-4c17-8542-12061955232b",
+            "containerId": "61e1f5f4-cdfb-4026-82ee-51d0375fed51",
+            "name": "Delete jawaban by id",
+            "url": "http://localhost:8000/api/v1/jawaban/2",
+            "method": "DELETE",
+            "sortNum": 65000,
+            "created": "2024-02-20T12:41:12.620Z",
+            "modified": "2024-02-28T12:09:30.065Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"jawabanPeserta\":1\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "bb39ffea-5779-41c6-b548-b19886c78a96",
+            "colId": "abdd1cb4-689c-4c17-8542-12061955232b",
+            "containerId": "61e1f5f4-cdfb-4026-82ee-51d0375fed51",
+            "name": "Get all jawaban",
+            "url": "http://localhost:8000/api/v1/jawaban",
+            "method": "GET",
+            "sortNum": 70000,
+            "created": "2024-02-20T12:40:44.894Z",
+            "modified": "2024-02-28T12:07:56.719Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"jawabanPeserta\":1\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "fa28253b-8a4a-447c-8367-51ead357ffe0",
+            "colId": "abdd1cb4-689c-4c17-8542-12061955232b",
+            "containerId": "561504cc-1b94-46ab-a0c3-01fe55b05c61",
+            "name": "Restricted",
+            "url": "http://localhost:8000/restricted",
+            "method": "GET",
+            "sortNum": 80000,
+            "created": "2024-02-24T12:24:46.566Z",
+            "modified": "2024-02-24T21:32:41.440Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjQsInJvbGUiOiJ1c2VyIn0._H8D0c_7HJZLfvj9XpfKEDeRhsC8N3Al6yaEAuOEgto"
+            },
+            "tests": []
+        },
+        {
+            "_id": "af71bf04-8a0f-4697-ab34-fc2c7f08ddb0",
+            "colId": "abdd1cb4-689c-4c17-8542-12061955232b",
+            "containerId": "966f83b0-01cb-423c-b566-7f785909b171",
+            "name": "Get time record",
+            "url": "http://localhost:8000/recordTime",
+            "method": "GET",
+            "sortNum": 90000,
+            "created": "2024-02-28T09:54:20.372Z",
+            "modified": "2024-02-28T09:54:47.471Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "a0d7323a-0243-4e7b-b28b-ebf4337804d8",
+            "colId": "abdd1cb4-689c-4c17-8542-12061955232b",
+            "containerId": "4f786752-8cc9-41da-85e8-c08f05b98ed7",
+            "name": "periksa",
+            "url": "http://localhost:8000/api/v1/periksa",
+            "method": "POST",
+            "sortNum": 110000,
+            "created": "2024-02-28T10:36:43.121Z",
+            "modified": "2024-03-03T21:25:24.470Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"idQuiz\":1,\n  \"idUser\":22\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsInJvbGUiOiJhZG1pbiJ9.m82u9ZQfMHLEeB_kbSynmssNkulfr4ATylYybfHjZ8U"
+            },
+            "tests": []
+        },
+        {
+            "_id": "b9be1743-dc62-4695-9440-47b9142f295b",
+            "colId": "abdd1cb4-689c-4c17-8542-12061955232b",
+            "containerId": "",
+            "name": "default route",
+            "url": "http://localhost:8000/bulls",
+            "method": "GET",
+            "sortNum": 120000,
+            "created": "2024-02-29T22:54:56.694Z",
+            "modified": "2024-02-29T22:55:09.436Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}
