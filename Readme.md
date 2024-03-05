@@ -1,6 +1,10 @@
 # Backend sederhana aplikasi quiz online
 Saya menggunakan framework fiber, database mysql, orm gorm.
 
+# Frontend dashboard sederhana aplikasi quiz online(maaf saya menulisnya disini, karena baru ingat yang disubmit hanya satu link)
+https://github.com/nobitayon/dashboard-quiz-project
+
+ 
 ## Beberapa catatan yang mungkin berbeda
 - Pada tabel pertanyaan, pada kolom jawaban_benar saya menggunakan indeks dari 1. Artinya misal terdapat opsi jawaban "6\`-\`42\`-\`30\`-\`25\`-\`36", kemudian jawaban_benar:2, berarti pilihan ke dua, yaitu 42 adalah jawaban yang benar
 - Saya terlanjur menggunakan pemisah seperti ini(yang tampak pada thunder client), "6\`-\`42\`-\`30\`-\`25\`-\`36", namun untuk aplikasi ini tidak terlalu berpengaruh
