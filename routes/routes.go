@@ -40,11 +40,21 @@ func Setup(app *fiber.App) {
 	// app.Get("/api/quiz/:idQuiz/pertanyaan/:idPertanyaan", controller.GetPertanyaanOnQuiz)
 	// app.Get("/api/quiz/:idQuiz/pertanyaan", controller.GetAllPertanyaanOnQuiz)
 
-	app.Get("/api/v1/jawaban", controller.GetJawaban)
-	app.Get("/api/v1/jawaban/:id", controller.GetJawabanById)
-	app.Post("/api/v1/jawaban", controller.AddJawaban)
-	app.Patch("/api/v1/jawaban/:id", controller.EditJawaban)
-	app.Delete("/api/v1/jawaban/:id", controller.DeleteJawabanById)
+	jawabanGroup := app.Group("/api/v1/jawaban")
+	jawabanGroup.Use(middleware_jwt.New(middleware_jwt.Config{Secret: "secretKey"}))
+	jawabanGroup.Get("/", controller.GetJawaban)
+	jawabanGroup.Get("/:id", controller.GetJawabanById)
+	jawabanGroup.Post("/", controller.AddJawaban)
+	jawabanGroup.Patch("/:id", controller.EditJawaban)
+	jawabanGroup.Delete("/:id", controller.DeleteJawabanById)
+	// app.Get("/api/v1/jawaban", controller.GetJawaban)
+	// app.Get("/api/v1/jawaban/:id", controller.GetJawabanById)
+	// app.Post("/api/v1/jawaban", controller.AddJawaban)
+	// app.Patch("/api/v1/jawaban/:id", controller.EditJawaban)
+	// app.Delete("/api/v1/jawaban/:id", controller.DeleteJawabanById)
+
+	// Memeriksa Jawaban peserta
+	app.Post("api/v1/periksa", middleware_jwt.New(middleware_jwt.Config{Secret: "secretKey"}), controller.PeriksaQuizFromUser)
 
 	// cek restricted
 	app.Get("/restricted", middleware_jwt.New(middleware_jwt.Config{Secret: "secretKey"}), func(c *fiber.Ctx) error {
@@ -60,6 +70,10 @@ func Setup(app *fiber.App) {
 		return c.JSON(fiber.Map{"time": timeRecord})
 	})
 
-	// cek periksa
-	app.Post("/periksa", middleware_jwt.New(middleware_jwt.Config{Secret: "secretKey"}), controller.PeriksaQuiz)
+	// default route
+	app.Use(func(c *fiber.Ctx) error {
+		// Return a 404 Not Found response
+		return c.Status(fiber.StatusNotFound).SendString("Not Found")
+	})
+
 }

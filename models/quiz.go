@@ -28,12 +28,13 @@ func (Pertanyaan) TableName() string {
 }
 
 type JawabanPeserta struct {
-	Id             int `gorm:"column:id" json:"id"`
-	IdUser         int `gorm:"column:id_user" json:"idUser"`
-	IdQuiz         int `gorm:"column:id_quiz" json:"idQuiz"`
-	IdPertanyaan   int `gorm:"column:id_pertanyaan" json:"idPertanyaan"`
-	JawabanPeserta int `gorm:"column:jawaban_peserta" json:"jawabanPeserta"`
-	Skor           int `gorm:"column:skor" json:"skor"`
+	Id             int        `gorm:"column:id" json:"id"`
+	IdUser         int        `gorm:"column:id_user" json:"idUser"`
+	IdQuiz         int        `gorm:"column:id_quiz" json:"idQuiz"`
+	IdPertanyaan   int        `gorm:"column:id_pertanyaan" json:"idPertanyaan"`
+	Pertanyaan     Pertanyaan `gorm:"foreignKey:IdPertanyaan"`
+	JawabanPeserta int        `gorm:"column:jawaban_peserta" json:"jawabanPeserta"`
+	Skor           int        `gorm:"column:skor" json:"skor"`
 }
 
 func (JawabanPeserta) TableName() string {
