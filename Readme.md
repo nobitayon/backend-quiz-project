@@ -15,6 +15,13 @@ Saya menggunakan framework fiber, database mysql, orm gorm.
 - folder database berisi logic untuk koneksi ke database
 - folder models berisi struct seperti representasi tabel, yang digunakan gorm 
 
+## Cara menjalakan project
+- Mengisi file .env
+- Membuat database sesuai dengan yang ditulis pada .env
+- Menambah admin, melalui sql command atau csv yang berada pada folder dataTabel
+- `go run main.go`
+
+
 ## Tabel pada database
 
 <p align="center">
