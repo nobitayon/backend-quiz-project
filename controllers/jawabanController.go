@@ -4,6 +4,7 @@ import (
 	"strconv"
 
 	"github.com/gofiber/fiber/v2"
+	"github.com/golang-jwt/jwt/v4"
 	"github.com/nobitayon/QuizProject/database"
 	"github.com/nobitayon/QuizProject/models"
 )
@@ -14,6 +15,12 @@ func AddJawaban(c *fiber.Ctx) error {
 
 	if err := c.BodyParser(&jawaban); err != nil {
 		return c.JSON(fiber.Map{"message": err.Error()})
+	}
+
+	claims := c.Locals("jwtClaims").(jwt.MapClaims)
+
+	if claims["id"] != jawaban.IdUser {
+		return c.Status(fiber.StatusForbidden).JSON(fiber.Map{"error": "tidak diizinkan"})
 	}
 
 	result := database.GormDB.Create(&jawaban)

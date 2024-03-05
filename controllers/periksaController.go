@@ -11,7 +11,7 @@ type inputPeriksaQuiz struct {
 	IdUser int `json:"idUser"`
 }
 
-func PeriksaQuiz(c *fiber.Ctx) error {
+func PeriksaQuizFromUser(c *fiber.Ctx) error {
 	var data inputPeriksaQuiz
 
 	if err := c.BodyParser(&data); err != nil {
@@ -31,15 +31,29 @@ func PeriksaQuiz(c *fiber.Ctx) error {
 
 	var jawabanPeserta []models.JawabanPeserta
 
-	// fmt.Println(data.IdUser)
-
-	result := database.GormDB.Where("id_quiz = ? AND id_user = ?", data.IdQuiz, data.IdUser).Find(&jawabanPeserta)
+	result := database.GormDB.Where("id_quiz = ? AND id_user = ?", data.IdQuiz, data.IdUser).Preload("Pertanyaan").Find(&jawabanPeserta)
 
 	if result.Error != nil {
 		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"error": result.Error.Error()})
 	}
 
-	// database.GormDB.Model(&jawabanPeserta).Association("Quiz").Find(&jawabanPeserta.Quiz)
+	num_correct := 0
 
-	return c.Status(fiber.StatusOK).JSON(jawabanPeserta)
+	var pertanyaans *[]models.Pertanyaan
+
+	database.GormDB.Where("id_quiz = ?", data.IdQuiz).Find(&pertanyaans)
+	num_pertanyaan := len(*pertanyaans)
+
+	for _, jawab := range jawabanPeserta {
+		if jawab.JawabanPeserta == jawab.Pertanyaan.JawabanBenar {
+			data := models.JawabanPeserta{Skor: 1}
+			database.GormDB.Model(&jawab).Updates(data)
+			num_correct += 1
+		}
+
+	}
+
+	nilai := (float64(num_correct) / float64(num_pertanyaan)) * 100
+
+	return c.Status(fiber.StatusOK).JSON(fiber.Map{"nilai": nilai, "jawabanPeserta": jawabanPeserta})
 }

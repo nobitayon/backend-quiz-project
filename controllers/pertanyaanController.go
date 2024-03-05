@@ -4,6 +4,7 @@ import (
 	"strconv"
 
 	"github.com/gofiber/fiber/v2"
+	"github.com/golang-jwt/jwt/v4"
 	"github.com/nobitayon/QuizProject/database"
 	"github.com/nobitayon/QuizProject/models"
 )
@@ -17,6 +18,13 @@ type InputPertanyaan struct {
 }
 
 func EditPertanyaanOnQuiz(c *fiber.Ctx) error {
+
+	claims := c.Locals("jwtClaims").(jwt.MapClaims)
+
+	if claims["role"] != "admin" {
+		return c.Status(fiber.StatusForbidden).JSON(fiber.Map{"error": "tidak diizinkan"})
+	}
+
 	var data models.Pertanyaan
 
 	if err := c.BodyParser(&data); err != nil {
@@ -56,6 +64,13 @@ func EditPertanyaanOnQuiz(c *fiber.Ctx) error {
 }
 
 func CreatePertanyaanOnQuiz(c *fiber.Ctx) error {
+
+	claims := c.Locals("jwtClaims").(jwt.MapClaims)
+
+	if claims["role"] != "admin" {
+		return c.Status(fiber.StatusForbidden).JSON(fiber.Map{"error": "tidak diizinkan"})
+	}
+
 	var data models.Pertanyaan
 
 	if err := c.BodyParser(&data); err != nil {
@@ -97,6 +112,13 @@ func CreatePertanyaanOnQuiz(c *fiber.Ctx) error {
 }
 
 func DeletePertanyaanOnQuiz(c *fiber.Ctx) error {
+
+	claims := c.Locals("jwtClaims").(jwt.MapClaims)
+
+	if claims["role"] != "admin" {
+		return c.Status(fiber.StatusForbidden).JSON(fiber.Map{"error": "tidak diizinkan"})
+	}
+
 	var data models.Pertanyaan
 
 	if err := c.BodyParser(&data); err != nil {
@@ -136,6 +158,7 @@ func DeletePertanyaanOnQuiz(c *fiber.Ctx) error {
 }
 
 func GetPertanyaanOnQuiz(c *fiber.Ctx) error {
+
 	var data models.Pertanyaan
 
 	if err := c.BodyParser(&data); err != nil {
